@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState, type FormEvent } from "react";
 import {
   Plane,
-  StampIcon,
+  Stamp,
   Hotel,
   Globe2,
   Users,
@@ -307,7 +307,7 @@ function TrustStrip() {
 function Services() {
   const services = [
     { icon: Plane, title: "Flight Booking", desc: "Fast international & domestic flight reservations at the best available prices." },
-    { icon: StampIcon, title: "Visa Assistance", desc: "Guidance and support for travel visa applications and documentation." },
+    { icon: Stamp, title: "Visa Assistance", desc: "Guidance and support for travel visa applications and documentation." },
     { icon: Hotel, title: "Hotel Reservations", desc: "Affordable to luxury hotel bookings worldwide." },
     { icon: Globe2, title: "Tour Packages", desc: "Curated travel experiences for groups, families, and solo travelers." },
     { icon: Users, title: "Group Travel Deals", desc: "Special offers for family trips, pilgrimages, and group tours." },
