@@ -156,7 +156,7 @@ function Nav({
           <a
             href={`tel:${PHONE}`}
             className="flex items-center gap-2 text-sm font-medium text-white/90 hover:text-[color:var(--gold)]"
-          >
+           target="_top" rel="noopener">
             <Phone className="h-4 w-4" /> {PHONE}
           </a>
           <a
@@ -192,7 +192,7 @@ function Nav({
             <a
               href={`tel:${PHONE}`}
               className="rounded-lg px-3 py-3 text-white/90 hover:bg-white/5"
-            >
+             target="_top" rel="noopener">
               📞 {PHONE}
             </a>
             <a
@@ -215,7 +215,7 @@ function Hero() {
     <section id="top" className="relative min-h-[100svh] w-full overflow-hidden">
       <img
         src={hero}
-        alt="Airplane wing above golden sunset clouds"
+        alt="Aerial view of Lalibela rock-hewn churches, Ethiopia at sunrise"
         width={1920}
         height={1280}
         className="absolute inset-0 h-full w-full object-cover"
@@ -235,8 +235,9 @@ function Hero() {
             <span className="text-gold-gradient">Ease &amp; Confidence</span>
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg">
-            Flights, visas, hotels, and tours — handled fast, professionally, and
-            stress-free by Raki Travel Agency in Addis Ababa.
+            Discover Ethiopia with confidence — flights, visas, hotels, and
+            curated tours to Lalibela, Simien Mountains, Gondar, Axum and
+            beyond, handled fast and stress-free from Addis Ababa.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a
@@ -282,7 +283,7 @@ function TrustStrip() {
   const items = [
     { k: "5.0★", v: "Google Rating" },
     { k: "24/7", v: "Support Line" },
-    { k: "100+", v: "Global Destinations" },
+    { k: "50+", v: "Ethiopian Destinations" },
     { k: "Fast", v: "Booking Process" },
   ];
   return (
@@ -354,7 +355,7 @@ function About() {
         <div className="relative">
           <img
             src={gLounge}
-            alt="Luxury airport lounge with airplane view"
+            alt="Ethiopian coffee ceremony with traditional jebena"
             width={1024}
             height={1280}
             loading="lazy"
@@ -453,20 +454,20 @@ function WhyUs() {
 /* ---------- GALLERY ---------- */
 function Gallery() {
   const items = [
-    { src: gDubai, alt: "Dubai skyline at dusk", span: "sm:col-span-2 sm:row-span-2" },
-    { src: gPassport, alt: "Passport and boarding pass" },
-    { src: gHotel, alt: "Luxury infinity pool at sunset" },
-    { src: gParis, alt: "Eiffel Tower at golden hour" },
-    { src: gTravelers, alt: "Happy travelers at airport" },
-    { src: gSantorini, alt: "Santorini blue domes", span: "sm:col-span-2" },
+    { src: gDubai, alt: "Addis Ababa skyline at dusk", span: "sm:col-span-2 sm:row-span-2" },
+    { src: gPassport, alt: "Ethiopian passport and boarding pass" },
+    { src: gHotel, alt: "Simien Mountains at sunset" },
+    { src: gParis, alt: "Blue Nile Falls (Tis Abay), Ethiopia" },
+    { src: gTravelers, alt: "Ethiopian family travelers at Bole Airport" },
+    { src: gSantorini, alt: "Royal Fasil Ghebbi castles, Gondar", span: "sm:col-span-2" },
   ];
   return (
     <section id="gallery" className="section-pad bg-background">
       <div className="container-luxe">
         <SectionHeader
-          eyebrow="Destinations"
+          eyebrow="Ethiopian Destinations"
           title="Where our travelers wake up next"
-          sub="A glimpse of the places, moments and comforts we arrange every week."
+          sub="From the highlands of Lalibela to the historic castles of Gondar — the places we arrange every week."
         />
         <div className="mt-14 grid auto-rows-[220px] grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
           {items.map((i) => (
@@ -595,7 +596,7 @@ function Contact() {
             <a
               href={`tel:${PHONE}`}
               className="flex items-center gap-4 rounded-xl border border-border bg-card p-4 transition hover:border-[color:var(--gold)]/50"
-            >
+             target="_top" rel="noopener">
               <span className="grid h-11 w-11 place-items-center rounded-lg bg-[color:var(--midnight)] text-[color:var(--gold)]">
                 <Phone className="h-5 w-5" />
               </span>
@@ -689,7 +690,7 @@ function QuoteForm() {
         <Field
           label="Destination"
           name="destination"
-          placeholder="e.g. Dubai, London, Bangkok"
+          placeholder="e.g. Lalibela, Gondar, Axum, Bahir Dar"
           required
         />
         <div className="grid gap-4 sm:grid-cols-2">
@@ -798,7 +799,7 @@ function Footer() {
           <ul className="space-y-2 text-sm">
             <li className="flex items-start gap-2">
               <Phone className="mt-0.5 h-4 w-4 text-[color:var(--gold)]" />
-              <a href={`tel:${PHONE}`}>{PHONE}</a>
+              <a href={`tel:${PHONE}`} target="_top" rel="noopener">{PHONE}</a>
             </li>
             <li className="flex items-start gap-2">
               <MapPin className="mt-0.5 h-4 w-4 text-[color:var(--gold)]" />
@@ -898,7 +899,7 @@ function FloatingWhatsApp() {
         href={`tel:${PHONE}`}
         aria-label="Call us"
         className="fixed bottom-5 left-5 z-50 grid h-14 w-14 place-items-center rounded-full bg-[color:var(--midnight)] text-[color:var(--gold)] shadow-[var(--shadow-luxe)] hover:scale-105 transition-transform md:hidden"
-      >
+       target="_top" rel="noopener">
         <Phone className="h-6 w-6" />
       </a>
     </>
