@@ -156,7 +156,7 @@ function Nav({
           <a
             href={`tel:${PHONE}`}
             className="flex items-center gap-2 text-sm font-medium text-white/90 hover:text-[color:var(--gold)]"
-          >
+           target="_top" rel="noopener">
             <Phone className="h-4 w-4" /> {PHONE}
           </a>
           <a
@@ -192,7 +192,7 @@ function Nav({
             <a
               href={`tel:${PHONE}`}
               className="rounded-lg px-3 py-3 text-white/90 hover:bg-white/5"
-            >
+             target="_top" rel="noopener">
               📞 {PHONE}
             </a>
             <a
@@ -596,7 +596,7 @@ function Contact() {
             <a
               href={`tel:${PHONE}`}
               className="flex items-center gap-4 rounded-xl border border-border bg-card p-4 transition hover:border-[color:var(--gold)]/50"
-            >
+             target="_top" rel="noopener">
               <span className="grid h-11 w-11 place-items-center rounded-lg bg-[color:var(--midnight)] text-[color:var(--gold)]">
                 <Phone className="h-5 w-5" />
               </span>
@@ -799,7 +799,7 @@ function Footer() {
           <ul className="space-y-2 text-sm">
             <li className="flex items-start gap-2">
               <Phone className="mt-0.5 h-4 w-4 text-[color:var(--gold)]" />
-              <a href={`tel:${PHONE}`}>{PHONE}</a>
+              <a href={`tel:${PHONE}`} target="_top" rel="noopener">{PHONE}</a>
             </li>
             <li className="flex items-start gap-2">
               <MapPin className="mt-0.5 h-4 w-4 text-[color:var(--gold)]" />
@@ -899,7 +899,7 @@ function FloatingWhatsApp() {
         href={`tel:${PHONE}`}
         aria-label="Call us"
         className="fixed bottom-5 left-5 z-50 grid h-14 w-14 place-items-center rounded-full bg-[color:var(--midnight)] text-[color:var(--gold)] shadow-[var(--shadow-luxe)] hover:scale-105 transition-transform md:hidden"
-      >
+       target="_top" rel="noopener">
         <Phone className="h-6 w-6" />
       </a>
     </>
