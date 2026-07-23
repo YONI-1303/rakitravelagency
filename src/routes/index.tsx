@@ -699,23 +699,25 @@ function QuoteForm() {
       className="rounded-3xl border border-border bg-card p-6 shadow-[var(--shadow-luxe)] sm:p-8"
     >
       <div className="grid gap-4">
-        <Field label="Full Name" name="name" placeholder="Your name" required />
+        <Field label="Full Name" name="name" placeholder="Your name" errors={state.errors} required />
         <Field
           label="Email"
           name="email"
           type="email"
           placeholder="you@example.com"
+          errors={state.errors}
           required
         />
         <Field
           label="Destination"
           name="destination"
           placeholder="e.g. Lalibela, Gondar, Axum, Bahir Dar"
+          errors={state.errors}
           required
         />
         <div className="grid gap-4 sm:grid-cols-2">
-          <Field label="Travel Date" name="date" type="date" required />
-          <Field label="Budget (USD)" name="budget" placeholder="e.g. 1500" />
+          <Field label="Travel Date" name="date" type="date" errors={state.errors} required />
+          <Field label="Budget (USD)" name="budget" placeholder="e.g. 1500" errors={state.errors} />
         </div>
         <div>
           <label className="mb-1.5 block text-xs font-medium uppercase tracking-widest text-muted-foreground">
