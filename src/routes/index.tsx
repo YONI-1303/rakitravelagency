@@ -458,9 +458,9 @@ function Gallery() {
     { src: gDubai, alt: "Addis Ababa skyline at dusk", span: "sm:col-span-2 sm:row-span-2" },
     { src: gPassport, alt: "Ethiopian passport and boarding pass" },
     { src: gHotel, alt: "Simien Mountains at sunset" },
-    { src: gParis, alt: "Blue Nile Falls (Tis Abay), Ethiopia" },
+    { src: gParis, alt: "Royal Fasil Ghebbi castles, Gondar, Ethiopia" },
     { src: gTravelers, alt: "Ethiopian family travelers at Bole Airport" },
-    { src: gSantorini, alt: "Royal Fasil Ghebbi castles, Gondar", span: "sm:col-span-2" },
+    { src: gSantorini, alt: "Ancient Aksum obelisks (hawilts), Ethiopia", span: "sm:col-span-2" },
   ];
   return (
     <section id="gallery" className="section-pad bg-background">
