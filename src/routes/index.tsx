@@ -667,27 +667,46 @@ function Contact() {
 }
 
 function QuoteForm() {
-  const [sent, setSent] = useState(false);
+  const [state, handleSubmit] = useForm("mjgnakgg");
 
-  function onSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    const name = String(data.get("name") ?? "");
-    const dest = String(data.get("destination") ?? "");
-    const date = String(data.get("date") ?? "");
-    const budget = String(data.get("budget") ?? "");
-    const msg = `Hello Raki Travel, I'd like a travel quote.%0A%0AName: ${name}%0ADestination: ${dest}%0ATravel date: ${date}%0ABudget: ${budget}`;
-    window.open(`https://wa.me/251913326307?text=${msg}`, "_blank");
-    setSent(true);
+  if (state.succeeded) {
+    return (
+      <div className="rounded-3xl border border-border bg-card p-8 shadow-[var(--shadow-luxe)] text-center">
+        <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-[image:var(--gradient-gold)] text-[color:var(--midnight)]">
+          <Send className="h-6 w-6" />
+        </div>
+        <h3 className="mt-5 font-display text-xl font-semibold text-[color:var(--midnight)]">
+          Quote Request Sent
+        </h3>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Thank you — our team will review your request and reply shortly.
+        </p>
+        <a
+          href={WHATSAPP}
+          target="_blank"
+          rel="noreferrer"
+          className="btn-outline mt-6 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm"
+        >
+          <MessageCircle className="h-4 w-4" /> Or chat on WhatsApp
+        </a>
+      </div>
+    );
   }
 
   return (
     <form
-      onSubmit={onSubmit}
+      onSubmit={handleSubmit}
       className="rounded-3xl border border-border bg-card p-6 shadow-[var(--shadow-luxe)] sm:p-8"
     >
       <div className="grid gap-4">
         <Field label="Full Name" name="name" placeholder="Your name" required />
+        <Field
+          label="Email"
+          name="email"
+          type="email"
+          placeholder="you@example.com"
+          required
+        />
         <Field
           label="Destination"
           name="destination"
@@ -698,16 +717,32 @@ function QuoteForm() {
           <Field label="Travel Date" name="date" type="date" required />
           <Field label="Budget (USD)" name="budget" placeholder="e.g. 1500" />
         </div>
+        <div>
+          <label className="mb-1.5 block text-xs font-medium uppercase tracking-widest text-muted-foreground">
+            Additional Notes
+          </label>
+          <textarea
+            name="message"
+            rows={3}
+            placeholder="Any special requests, number of travelers, etc."
+            className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground outline-none transition focus:border-[color:var(--gold)] focus:ring-2 focus:ring-[color:var(--gold)]/30"
+          />
+          <ValidationError
+            field="message"
+            errors={state.errors}
+            className="mt-1 text-xs text-red-500"
+          />
+        </div>
         <button
           type="submit"
-          className="btn-gold mt-2 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm sm:text-base"
+          disabled={state.submitting}
+          className="btn-gold mt-2 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm sm:text-base disabled:opacity-60 disabled:cursor-not-allowed"
         >
-          <Send className="h-4 w-4" /> Request Quote
+          <Send className="h-4 w-4" />
+          {state.submitting ? "Sending..." : "Request Quote"}
         </button>
         <p className="text-center text-xs text-muted-foreground">
-          {sent
-            ? "✓ Opening WhatsApp — we'll respond within minutes."
-            : "We will respond quickly with the best available options."}
+          We will respond quickly with the best available options.
         </p>
       </div>
     </form>
@@ -733,11 +768,17 @@ function Field({
         {label}
       </span>
       <input
+        id={name}
         name={name}
         type={type}
         required={required}
         placeholder={placeholder}
         className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground outline-none transition focus:border-[color:var(--gold)] focus:ring-2 focus:ring-[color:var(--gold)]/30"
+      />
+      <ValidationError
+        field={name}
+        errors={state.errors}
+        className="mt-1 text-xs text-red-500"
       />
     </label>
   );
