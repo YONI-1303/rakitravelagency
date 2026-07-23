@@ -757,12 +757,14 @@ function Field({
   type = "text",
   placeholder,
   required,
+  errors,
 }: {
   label: string;
   name: string;
   type?: string;
   placeholder?: string;
   required?: boolean;
+  errors?: any;
 }) {
   return (
     <label className="block">
@@ -779,7 +781,7 @@ function Field({
       />
       <ValidationError
         field={name}
-        errors={state.errors}
+        errors={errors}
         className="mt-1 text-xs text-red-500"
       />
     </label>
